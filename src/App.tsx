@@ -83,7 +83,6 @@ function App() {
               onClick={() => {
                 bubbleSort();
               }}
-              // className={`font-bold text-white bg-indigo-700 p-2 outline-none rounded-md`}
               className={`font-bold text-indigo-700 bg-indigo-50 p-2 rounded-md opacity-85 outline-none hover:bg-indigo-100`}
               style={{ transition: "all 1s ease" }}
             >
