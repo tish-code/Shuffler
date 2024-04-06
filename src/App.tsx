@@ -68,7 +68,11 @@ function App() {
                   order: index,
                 }}
                 {...(animateBars && {
-                  transition: { type: "spring", duration: 1 },
+                  transition: {
+                    type: "spring",
+                    duration: 1,
+                    delay: 0.5,
+                  },
                   initial: { height: "auto" },
                   animate: { height: `${item.rate}%` },
                 })}
