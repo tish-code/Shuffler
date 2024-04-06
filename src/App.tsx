@@ -24,7 +24,6 @@ function App() {
   const [isSorting, setIsSorting] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
   const [animateBars, setAnimateBars] = useState(true);
-  console.log(animateBars);
 
   const bubbleSort = useCallback(async () => {
     if (isSorted) return;
@@ -35,7 +34,7 @@ function App() {
         let arr1 = sortedData[j];
         let arr2 = sortedData[j + 1];
         if (arr1.rate > arr2.rate) {
-          if (j > 0) await new Promise((resolve) => setTimeout(resolve, 300));
+          if (j > 0) await new Promise((resolve) => setTimeout(resolve, 200));
           let temp = arr1;
           sortedData[j] = arr2;
           sortedData[j + 1] = temp;
@@ -48,6 +47,7 @@ function App() {
   }, [info]);
 
   useEffect(() => {
+    console.log("hello");
     const animationTimeout = setTimeout(() => {
       setAnimateBars(false);
     }, 2000);
@@ -71,7 +71,7 @@ function App() {
                   transition: {
                     type: "spring",
                     duration: 1,
-                    delay: 0.5,
+                    delay: index > 4 ? 0.6 : index > 8 ? 0.9 : 0.3,
                   },
                   initial: { height: "auto" },
                   animate: { height: `${item.rate}%` },
@@ -98,8 +98,9 @@ function App() {
             <button
               disabled={isSorting}
               onClick={() => {
-                setIsSorted(false);
-                setInfo(data);
+                window.location.reload();
+                // setIsSorted(false);
+                // setInfo(data);
               }}
               className={`font-bold text-indigo-700 bg-indigo-50 p-2 rounded-md opacity-85 outline-none hover:bg-indigo-100`}
             >
